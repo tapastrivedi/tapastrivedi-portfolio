@@ -3,18 +3,6 @@
 // Helper: toggle "active" class on an element
 const toggleActive = (el) => el.classList.toggle('active');
 
-/* ---------------- SIDEBAR (mobile show/hide contacts) ---------------- */
-const sidebar = document.querySelector('[data-sidebar]');
-const sidebarBtn = document.querySelector('[data-sidebar-btn]');
-
-if (sidebarBtn) {
-  sidebarBtn.addEventListener('click', () => {
-    toggleActive(sidebar);
-    const label = sidebarBtn.querySelector('span');
-    if (label) label.textContent = sidebar.classList.contains('active') ? 'Hide Contacts' : 'Show Contacts';
-  });
-}
-
 /* ---------------- PROJECT FILTER (mobile custom select) ---------------- */
 const select = document.querySelector('[data-select]');
 const selectItems = document.querySelectorAll('[data-select-item]');
@@ -61,17 +49,6 @@ filterBtns.forEach((btn) => {
     if (lastClickedBtn) lastClickedBtn.classList.remove('active');
     this.classList.add('active');
     lastClickedBtn = this;
-  });
-});
-
-/* ---------------- CONTACT FORM (enable button when valid) ---------------- */
-const form = document.querySelector('[data-form]');
-const formInputs = document.querySelectorAll('[data-form-input]');
-const formBtn = document.querySelector('[data-form-btn]');
-
-formInputs.forEach((input) => {
-  input.addEventListener('input', () => {
-    if (form && formBtn) formBtn.disabled = !form.checkValidity();
   });
 });
 
